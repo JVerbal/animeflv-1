@@ -29,7 +29,7 @@ const latestEpisodesAdded = async() =>{
     promises.push(getAnimeServers(id).then(async servers => ({
       id: id || null,
       title: title || null,
-      poster: await imageUrlToBase64(poster) || null,
+      poster: poster || null,
       episode: episode || null,
       servers: servers || null,
     })))
@@ -135,7 +135,7 @@ const getAnimeInfo = async(title) =>{
   try{
     promises.push(await animeInfo(`anime/${animeId}`, animeIndex).then(async extra => ({
       title: title || null,
-      poster: await imageUrlToBase64(extra.animeExtraInfo[0].poster) || null,
+      poster: extra.animeExtraInfo[0].poster || null,
       banner: extra.animeExtraInfo[0].banner || null,
       synopsis: extra.animeExtraInfo[0].synopsis || null,
       debut: extra.animeExtraInfo[0].debut || null,
